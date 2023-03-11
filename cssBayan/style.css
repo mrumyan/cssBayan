@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0 auto;
+    font-family: Verdana, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1rem;
+    color: black;
+}
+
+.main__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100vw;
+    padding: 2% 10%;
+}
+
+.main__title {
+    padding: 5% 0;
+    width: 100%;
+}
+
+.main__memes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.meme-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 2% 0;
+    border-top: 0.05rem solid grey;
+}
+
+.meme-checkbox {
+    width: 0;
+    height: 0;
+    appearance: none;
+}
+
+.meme-snap {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+.meme-title {
+    cursor: pointer;
+    color: blue;
+}
+
+.meme-checkbox:checked~.meme-snap>.meme-title,
+.main__memes:hover .meme-title {
+    color: black;
+}
+
+.meme-icon {
+    content: "+";
+    visibility: hidden;
+}
+
+.main__memes:hover .meme-icon {
+    visibility: visible;
+}
+
+.meme-image {
+    display: none;
+    margin: 0 auto;
+    max-width: 50%;
+    object-fit: contain;
+}
+
+.meme-checkbox:checked~.meme-image {
+    display: inline-block;
+}
+
+.meme-checkbox:checked~.meme-snap>.meme-icon {
+    transform: rotate(45deg);
+}
