@@ -26,7 +26,7 @@ body {
 }
 
 .main__title {
-    padding: 5% 0;
+    padding: 5% 0 3%;
     width: 100%;
 }
 
@@ -43,7 +43,7 @@ body {
     justify-content: space-between;
     gap: 1rem;
     padding: 2% 0;
-    border-top: 0.05rem solid grey;
+    border-top: 0.1rem solid rgb(203, 203, 203);
 }
 
 .meme-checkbox {
@@ -81,9 +81,10 @@ body {
 }
 
 .meme-image {
+    cursor: pointer;
     display: none;
     margin: 0 auto;
-    max-width: 50%;
+    width: 35%;
     object-fit: contain;
 }
 
@@ -93,4 +94,24 @@ body {
 
 .meme-checkbox:checked~.meme-snap>.meme-icon {
     transform: rotate(45deg);
+}
+
+@media only screen and (max-width: 820px) {
+    .main__title {
+        font-size: 1.5rem;
+    }
+
+    .meme-title {
+        font-size: 1.1rem;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .main__title {
+        font-size: 1rem;
+    }
+
+    .meme-title {
+        font-size: 0.8rem;
+    }
 }
