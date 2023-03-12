@@ -46,14 +46,22 @@ body {
     border-top: 0.1rem solid rgb(203, 203, 203);
 }
 
-.meme-checkbox {
+.meme-radio {
     width: 0;
     height: 0;
     appearance: none;
 }
 
-.meme-snap {
+.meme-content {
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.meme-snap {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -62,12 +70,11 @@ body {
 }
 
 .meme-title {
-    cursor: pointer;
-    color: blue;
+    font-size: 1.5rem;
+    color: rgb(77, 77, 248);
 }
 
-.meme-checkbox:checked~.meme-snap>.meme-title,
-.main__memes:hover .meme-title {
+.meme-radio:checked~.meme-content .meme-title {
     color: black;
 }
 
@@ -76,28 +83,29 @@ body {
     visibility: hidden;
 }
 
-.main__memes:hover .meme-icon {
-    visibility: visible;
-}
-
 .meme-image {
-    cursor: pointer;
-    display: none;
     margin: 0 auto;
-    width: 35%;
+    width: 30%;
+    height: 0;
     object-fit: contain;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 1s, opacity 1s;
 }
 
-.meme-checkbox:checked~.meme-image {
-    display: inline-block;
+.meme-radio:checked~.meme-content .meme-image {
+    height: auto;
+    visibility: visible;
+    opacity: 1;
 }
 
-.meme-checkbox~.meme-snap>.meme-icon {
+.meme-radio~.meme-content .meme-icon {
     transform: rotate(0);
     transition: transform .2s ease-in;
 }
 
-.meme-checkbox:checked~.meme-snap>.meme-icon {
+.meme-radio:checked~.meme-content .meme-icon {
     transform: rotate(45deg);
     transition: transform .2s ease-in;
 }
@@ -119,5 +127,26 @@ body {
 
     .meme-title {
         font-size: 0.8rem;
+    }
+}
+
+@media (hover: hover) {
+    .main__memes:hover .meme-title {
+        color: black;
+    }
+
+    .main__memes:hover .meme-icon {
+        visibility: visible;
+    }
+
+    .meme-radio:hover~.meme-content .meme-icon {
+        transform: rotate(45deg);
+        transition: transform .2s ease-in;
+    }
+
+    .meme-radio:hover~.meme-content .meme-image {
+        visibility: visible;
+        opacity: 1;
+        height: auto;
     }
 }
