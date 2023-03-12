@@ -92,8 +92,14 @@ body {
     display: inline-block;
 }
 
+.meme-checkbox~.meme-snap>.meme-icon {
+    transform: rotate(0);
+    transition: transform .2s ease-in;
+}
+
 .meme-checkbox:checked~.meme-snap>.meme-icon {
     transform: rotate(45deg);
+    transition: transform .2s ease-in;
 }
 
 @media only screen and (max-width: 820px) {
